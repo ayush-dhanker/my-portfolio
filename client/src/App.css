@@ -1,38 +1,42 @@
-.App {
-  text-align: center;
+.orb-frame {
+    position: relative;
+    isolation: isolate;
+    width: clamp(220px, 38vw, 420px);
+    /* responsive max size */
+    aspect-ratio: 1 / 1;
+    /* always square */
+    margin: 0 auto;
+    overflow: hidden;
+    /* crop anything that sticks out */
+    border-radius: 50%;
+    /* keep it circular */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.orb-layer {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    /* orb on top of photo */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.orb-layer canvas,
+.orb-layer svg {
+    width: 100% !important;
+    height: 100% !important;
+    display: block;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.orb-photo {
+    position: absolute;
+    inset: 14%;
+    /* controls how much gap between orb & photo */
+    width: 72%;
+    /* responsive scaling */
+    height: 72%;
+    /* matches width, so image is always square */
+    border-radius: 50%;
+    /* circular crop */
+    object-fit: cover;
+    /* crop, not squash */
+    z-index: 1;
 }
