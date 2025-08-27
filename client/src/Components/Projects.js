@@ -9,68 +9,85 @@ const Projects = () => {
             id: 1,
             title: "E-Commerce Platform",
             description: "A full-stack e-commerce solution with React, Node.js, and MongoDB.",
-            image: "https://via.placeholder.com/300x200?text=E-Commerce",
-            tags: ["react", "node", "mongodb", "web"],
-            link: "#"
+            image: "https://via.placeholder.com/300x200/4a6cf7/ffffff?text=E-Commerce",
+            tags: ["react", "node", "mongodb"],
+            category: "personal",
+            link: "#",
+            report: ""
         },
         {
             id: 2,
-            title: "Machine Learning Model",
-            description: "A predictive model for customer behavior analysis using Python and Scikit-learn.",
-            image: "https://via.placeholder.com/300x200?text=ML+Model",
+            title: "Customer Behavior Analysis",
+            description: "A predictive model for customer behavior using Python and Scikit-learn.",
+            image: "https://via.placeholder.com/300x200/8a54ff/ffffff?text=ML+Model",
             tags: ["python", "ml", "scikit-learn"],
-            link: "#"
+            category: "course",
+            link: "#",
+            report: "/reports/customer_analysis.pdf"
         },
         {
             id: 3,
             title: "Portfolio Website",
             description: "A responsive portfolio website built with React and CSS animations.",
-            image: "https://via.placeholder.com/300x200?text=Portfolio",
+            image: "https://via.placeholder.com/300x200/00b4db/ffffff?text=Portfolio",
             tags: ["react", "css", "web"],
-            link: "#"
+            category: "personal",
+            link: "#",
+            report: ""
         },
         {
             id: 4,
-            title: "NLP Text Analysis",
+            title: "NLP Sentiment Analysis",
             description: "Natural Language Processing application for sentiment analysis.",
-            image: "https://via.placeholder.com/300x200?text=NLP",
+            image: "https://via.placeholder.com/300x200/ff6b6b/ffffff?text=NLP",
             tags: ["python", "nlp", "machine learning"],
-            link: "#"
+            category: "course",
+            link: "#",
+            report: "/reports/nlp_sentiment.pdf"
         },
         {
             id: 5,
             title: "Data Visualization Dashboard",
             description: "Interactive dashboard for data visualization using D3.js and React.",
-            image: "https://via.placeholder.com/300x200?text=Dashboard",
-            tags: ["react", "d3", "data visualization", "web"],
-            link: "#"
+            image: "https://via.placeholder.com/300x200/2c5364/ffffff?text=Dashboard",
+            tags: ["react", "d3", "data visualization"],
+            category: "personal",
+            link: "#",
+            report: ""
         },
         {
             id: 6,
-            title: "API Development",
-            description: "RESTful API development with FastAPI and PostgreSQL.",
-            image: "https://via.placeholder.com/300x200?text=API",
+            title: "RESTful API Development",
+            description: "API development with FastAPI and PostgreSQL.",
+            image: "https://via.placeholder.com/300x200/203a43/ffffff?text=API",
             tags: ["python", "fastapi", "postgresql"],
-            link: "#"
+            category: "course",
+            link: "#",
+            report: "/reports/api_development.pdf"
         }
     ];
 
     const filters = [
         { id: 'all', name: 'All Projects' },
-        { id: 'web', name: 'Web Development' },
-        { id: 'ml', name: 'Machine Learning' },
-        { id: 'python', name: 'Python' },
-        { id: 'react', name: 'React' }
+        { id: 'personal', name: 'Personal' },
+        { id: 'course', name: 'Course' }
     ];
 
     const filteredProjects = activeFilter === 'all'
         ? projects
-        : projects.filter(project => project.tags.includes(activeFilter));
+        : projects.filter(project => project.category === activeFilter);
+
+    const handleDownloadReport = (reportUrl, projectTitle) => {
+        // Simulate download functionality
+        console.log(`Downloading report for ${projectTitle} from ${reportUrl}`);
+        // In a real application, this would trigger a file download
+        alert(`Downloading report for ${projectTitle}`);
+    };
 
     return (
         <section id="projects" className="projects-section">
             <div className="container">
-                <h2 className="section-title">My Projects</h2>
+                <h2 style={{ textAlign: 'center' }}>My Projects</h2>
                 <p className="section-subtitle">A selection of my recent work</p>
 
                 {/* Filter buttons */}
@@ -100,6 +117,15 @@ const Projects = () => {
                                         <a href={project.link} className="project-link">
                                             <i className="fab fa-github"></i>
                                         </a>
+                                        {project.report && (
+                                            <button
+                                                className="project-link download-btn"
+                                                onClick={() => handleDownloadReport(project.report, project.title)}
+                                                title="Download Report"
+                                            >
+                                                <i className="fas fa-download"></i>
+                                            </button>
+                                        )}
                                     </div>
                                 </div>
                             </div>
@@ -110,6 +136,17 @@ const Projects = () => {
                                     {project.tags.map(tag => (
                                         <span key={tag} className="project-tag">{tag}</span>
                                     ))}
+                                </div>
+                                <div className="project-category">
+                                    <div>Category: <span>{project.category}</span></div>
+                                    {project.report && (
+                                        <button
+                                            className="download-report-btn"
+                                            onClick={() => handleDownloadReport(project.report, project.title)}
+                                        >
+                                            <i className="fas fa-download"></i> Download Report
+                                        </button>
+                                    )}
                                 </div>
                             </div>
                         </div>

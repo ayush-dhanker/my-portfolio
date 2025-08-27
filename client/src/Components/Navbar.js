@@ -12,7 +12,7 @@ const Navbar = () => {
         <nav className="navbar">
             <div className="nav-container">
                 <div className="nav-logo">
-                    <span>Brand</span>
+                    <span>AD</span>
                     <div className="logo-dot"></div>
                 </div>
 
@@ -30,14 +30,8 @@ const Navbar = () => {
                         </a>
                     </div>
                     <div className="nav-item">
-                        <a href="#services" className="nav-link">
-                            <span className="link-text">Services</span>
-                            <div className="link-underline"></div>
-                        </a>
-                    </div>
-                    <div className="nav-item">
-                        <a href="#portfolio" className="nav-link">
-                            <span className="link-text">Portfolio</span>
+                        <a href="#projects" className="nav-link">
+                            <span className="link-text">Projects</span>
                             <div className="link-underline"></div>
                         </a>
                     </div>

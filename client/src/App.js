@@ -51,7 +51,7 @@ function App() {
       <Navbar />
 
       {/* Image/ display */}
-      <div className="orb-frame">
+      <div className="orb-frame" id='home'>
         <div className="orb-layer">
           <Orb
             hoverIntensity={0.5}
@@ -83,40 +83,42 @@ function App() {
       </div>
 
       {/* experience and education  */}
-      <div className='profile'>
-        <div>
-
-          <h2>ABOUT</h2>
-          <p style={{ padding: '2.2rem', paddingRight: '3rem' }}>
-            Master’s student in Data Science Engineering with a strong Computer Science foundation
-            and practical experience in machine learning and full-stack web development. Proficient
-            in Python (Scikit-learn, PyTorch), JavaScript/React, SQL, FastAPI and Git; integrating RESTful APIs,
-            with practical experience from internships and projects involving interactive data visualizations and f
-            ull-stack applications
-          </p>
-
-          <h2>EXPERIENCE</h2>
-          <Timeline steps={experience} activeStep={2} />
-
-          <h2>EDUCATION</h2>
-          <Timeline steps={education} activeStep={2} />
-
+      <div id='about'>
+        <div className='profile' >
           <div>
-            <MagicMarquee />
+
+            <h2>ABOUT</h2>
+            <p style={{ padding: '2.2rem', paddingRight: '3rem' }}>
+              Master’s student in Data Science Engineering with a strong Computer Science foundation
+              and practical experience in machine learning and full-stack web development. Proficient
+              in Python (Scikit-learn, PyTorch), JavaScript/React, SQL, FastAPI and Git; integrating RESTful APIs,
+              with practical experience from internships and projects involving interactive data visualizations and f
+              ull-stack applications
+            </p>
+
+            <h2>EXPERIENCE</h2>
+            <Timeline steps={experience} activeStep={2} />
+
+            <h2>EDUCATION</h2>
+            <Timeline steps={education} activeStep={2} />
+
+            <div>
+              <MagicMarquee />
+            </div>
+
           </div>
 
-        </div>
-
-        <div>
-          <h2>SKILLS</h2>
-          <Skills />
+          <div>
+            <h2>SKILLS</h2>
+            <Skills />
+          </div>
         </div>
       </div>
 
 
 
       {/* Projects */}
-      <div>
+      <div id='projects'>
         <Projects />
       </div>
 
