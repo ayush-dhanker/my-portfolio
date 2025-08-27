@@ -1,3 +1,21 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    /* font-family: "Playfair Display", serif; */
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+}
+
+h1 {
+    font-size: 45px;
+    margin: 0;
+}
+
 .orb-frame {
     position: relative;
     isolation: isolate;
@@ -39,4 +57,30 @@
     object-fit: cover;
     /* crop, not squash */
     z-index: 1;
+}
+
+.intro {
+    width: 100%;
+    text-align: center;
+}
+
+.intro p {
+    margin: 0;
+    font-weight: 500;
+}
+
+/* experience and education */
+.profile {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 40px;
+    margin: auto;
+
+}
+
+.profile>div {
+    width: 45%;
+    /* min-width: 450px; */
 }
