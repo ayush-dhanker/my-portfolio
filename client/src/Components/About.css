@@ -1,0 +1,129 @@
+/* About.css */
+.about-section {
+    padding: 4rem 2rem;
+    background: #f9f9f9;
+  }
+  
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .section-title {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 2.5rem;
+    color: #2d2d2d;
+    font-weight: 700;
+    position: relative;
+  }
+  
+  .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #4a6cf7, #8a54ff);
+    border-radius: 2px;
+  }
+  
+  .about-content {
+    background: white;
+    border-radius: 12px;
+    padding: 2.5rem;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  }
+  
+  .about-text {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #444;
+    margin-bottom: 2rem;
+  }
+  
+  .experience-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .experience-item {
+    background: #f8f9ff;
+    border-radius: 10px;
+    padding: 1.5rem;
+    border-left: 4px solid #4a6cf7;
+    transition: all 0.3s ease;
+  }
+  
+  .experience-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(74, 108, 247, 0.15);
+  }
+  
+  .experience-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  .experience-header h3 {
+    font-size: 1.2rem;
+    color: #2d2d2d;
+    margin: 0;
+    font-weight: 600;
+  }
+  
+  .date {
+    background: #4a6cf7;
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+  
+  .company {
+    color: #666;
+    font-style: italic;
+    margin: 0;
+    font-size: 1rem;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .about-section {
+      padding: 3rem 1rem;
+    }
+    
+    .about-content {
+      padding: 2rem 1.5rem;
+    }
+    
+    .experience-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+    
+    .date {
+      align-self: flex-start;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .section-title {
+      font-size: 1.8rem;
+    }
+    
+    .about-text {
+      font-size: 1rem;
+    }
+    
+    .experience-header h3 {
+      font-size: 1.1rem;
+    }
+  }

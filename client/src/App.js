@@ -9,6 +9,10 @@ import SplashCursor from './Components/SplashCursor';
 import SocialLinks from './Components/SocialLinks';
 import Timeline from './Components/Timeline';
 import Navbar from './Components/Navbar';
+import Skills from './Components/Skills';
+import About from './Components/About';
+import Projects from './Components/Projects';
+import MagicMarquee from './Components/MagicMarquee';
 
 function App() {
   // const items = [
@@ -18,27 +22,32 @@ function App() {
   // ];
   const experience = [
     {
-      title: "Software Engineer",
-      subtitle: "ABC Corp | 2020 - Present",
-      description: "Building scalable web apps using React and Node.js."
+      title: "Junior Web Developer",
+      subtitle: "Palpixel Private Limited | Aug 2023 – Feb 2024",
+      // description: "Building scalable web apps using ReactJS and Node.js."
     },
     {
-      title: "Frontend Developer",
-      subtitle: "XYZ Ltd | 2018 - 2020",
-      description: "Focused on UI/UX and responsive design."
+      title: "Software developer Intern",
+      subtitle: "Perspective | Sept 2022 – May 2023 ",
+      // description: "Focused on UI/UX and responsive design."
+    },
+  ];
+  const education = [
+    {
+      title: "Master in Data and Knowledge Engineering",
+      subtitle: "OTTO-VON-GUERICKE-UNIVERSITY | GERMANY",
+      description: "Apr 2024 - pursuing"
     },
     {
-      title: "Intern",
-      subtitle: "Startup Inc | 2017 - 2018",
-      description: "Worked on bug fixes and small feature improvements."
-    }
+      title: "Bachelor of Technology in Computer Science ",
+      subtitle: "GURU GOBIND SINGH INDRAPRASTHA UNIVERSITY | New Delhi, INDIA ",
+      description: "Aug 2019 - July 2023"
+    },
   ];
   return (
     <div className="app">
 
-      <SplashCursor
-      // SPLAT_FORCE={0.5}
-      />
+      <SplashCursor />
       <Navbar />
 
       {/* Image/ display */}
@@ -76,16 +85,39 @@ function App() {
       {/* experience and education  */}
       <div className='profile'>
         <div>
-          <h3>EXPERIENCE</h3>
+
+          <h2>ABOUT</h2>
+          <p style={{ padding: '2.2rem', paddingRight: '3rem' }}>
+            Master’s student in Data Science Engineering with a strong Computer Science foundation
+            and practical experience in machine learning and full-stack web development. Proficient
+            in Python (Scikit-learn, PyTorch), JavaScript/React, SQL, FastAPI and Git; integrating RESTful APIs,
+            with practical experience from internships and projects involving interactive data visualizations and f
+            ull-stack applications
+          </p>
+
+          <h2>EXPERIENCE</h2>
           <Timeline steps={experience} activeStep={2} />
-          <h3>EDUCATION</h3>
-          <Timeline steps={experience} activeStep={2} />
+
+          <h2>EDUCATION</h2>
+          <Timeline steps={education} activeStep={2} />
+
+          <div>
+            <MagicMarquee />
+          </div>
+
         </div>
 
         <div>
-          <h2>About Me</h2>
-          <p></p>
+          <h2>SKILLS</h2>
+          <Skills />
         </div>
+      </div>
+
+
+
+      {/* Projects */}
+      <div>
+        <Projects />
       </div>
 
       {/* <Iridescence
