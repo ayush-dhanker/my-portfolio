@@ -13,6 +13,7 @@ import Skills from './Components/Skills';
 import About from './Components/About';
 import Projects from './Components/Projects';
 import MagicMarquee from './Components/MagicMarquee';
+import { Highlighter } from './Components/Highlighter';
 
 function App() {
   // const items = [
@@ -47,43 +48,46 @@ function App() {
   return (
     <div className="app">
 
-      <SplashCursor />
+      {/* <SplashCursor /> */}
       <Navbar />
 
       {/* Image/ display */}
-      <div className="orb-frame" id='home'>
-        <div className="orb-layer">
-          <Orb
-            hoverIntensity={0.5}
-            rotateOnHover
-            hue={0}
-            forceHoverState={false}
-            style={{ width: "100%", height: "100%" }}
-            className="orb"
-          />
+      <div id='home' style={{ padding: '80px 0 0' }}>
+        <div className="orb-frame" >
+          <div className="orb-layer">
+            <Orb
+              hoverIntensity={0.5}
+              rotateOnHover
+              hue={0}
+              forceHoverState={false}
+              style={{ width: "100%", height: "100%" }}
+              className="orb"
+            />
+          </div>
+          <img src={dp} alt="display_picture" className="orb-photo" />
         </div>
-        <img src={dp} alt="display_picture" className="orb-photo" />
       </div>
 
       {/* Intro */}
       <div className='intro'>
         <h1>AYUSH DHANKER</h1>
         <p>Master’s in Data & Knowledge Engineering</p>
-        <p>[ Aspiring AI/ML Engineer ]</p>
+        <p><Highlighter action="highlight" color="#FFFE37" animationDuration='2000'>[ Aspiring AI/ML Engineer ]</Highlighter></p>
         <SocialLinks />
-      </div>
 
-      <div style={{ width: '100%', height: '300px', position: 'relative' }}>
+      </div>
+      {/* 
+      <div style={{ width: '100%', height: '200px', position: 'relative', display: 'flex', alignItems: 'center', zIndex: '-1' }}>
         <Threads
           amplitude={1}
           distance={0}
           enableMouseInteraction={true}
           color={[0, 0, 0]}
         />
-      </div>
+      </div> */}
 
       {/* experience and education  */}
-      <div id='about'>
+      <div id='about' style={{ padding: '80px 0 0' }}>
         <div className='profile' >
           <div>
 
