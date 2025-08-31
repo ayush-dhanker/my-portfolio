@@ -1,7 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import Iridescence from './Components/Iridescence';
 import Orb from './Components/Orb';
 import dp from './assets/dp.png'
 import Threads from './Components/Threads';
@@ -10,17 +9,13 @@ import SocialLinks from './Components/SocialLinks';
 import Timeline from './Components/Timeline';
 import Navbar from './Components/Navbar';
 import Skills from './Components/Skills';
-import About from './Components/About';
 import Projects from './Components/Projects';
 import MagicMarquee from './Components/MagicMarquee';
 import { Highlighter } from './Components/Highlighter';
+import Footer from './Components/Footer';
+import Contact from './Components/Contact';
 
 function App() {
-  // const items = [
-  //   { label: "Home", href: "/" },
-  //   { label: "Jobs", href: "/jobs" },
-  //   { label: "About", href: "/about" },
-  // ];
   const experience = [
     {
       title: "Junior Web Developer",
@@ -93,11 +88,9 @@ function App() {
 
             <h2>ABOUT</h2>
             <p style={{ padding: '2.2rem', paddingRight: '3rem' }}>
-              Master’s student in Data Science Engineering with a strong Computer Science foundation
-              and practical experience in machine learning and full-stack web development. Proficient
-              in Python (Scikit-learn, PyTorch), JavaScript/React, SQL, FastAPI and Git; integrating RESTful APIs,
-              with practical experience from internships and projects involving interactive data visualizations and f
-              ull-stack applications
+              I’m a Master’s student in Data Science Engineering with a strong foundation in Computer Science and hands-on experience in machine learning and full-stack development.
+              I work fluently with Python (Scikit-learn, PyTorch), JavaScript/React, SQL, FastAPI, and Git, building everything from RESTful APIs to interactive data visualizations. Through internships and projects,
+              I’ve applied these skills to develop practical, end-to-end solutions that bridge data and software.
             </p>
 
             <h2>EXPERIENCE</h2>
@@ -126,12 +119,9 @@ function App() {
         <Projects />
       </div>
 
-      {/* <Iridescence
-        color={[1, 1, 1]}
-        mouseReact={true}
-        amplitude={0.1}
-        speed={1.0}
-      /> */}
+      <Contact />
+
+      <Footer />
       {/* <div className="grid h-screen place-content-center bg-black">
         <Navigation />
       </div> */}

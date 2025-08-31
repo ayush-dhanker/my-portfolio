@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Navbar.css';
+import { Highlighter } from './Highlighter';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -14,6 +15,11 @@ const Navbar = () => {
                 <div className="nav-logo">
                     <span>AD</span>
                     <div className="logo-dot"></div>
+                    <span className="open-to">
+                        <Highlighter action="highlight" color="#FFFE37" animationDuration='2000'>
+                            <span className="open-to">Open to opportunities</span>
+                        </Highlighter>
+                    </span>
                 </div>
 
                 <div className={`nav-menu ${isOpen ? 'active' : ''}`}>

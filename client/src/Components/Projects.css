@@ -217,7 +217,7 @@
 
 .project-tag {
     background: #f0f4ff;
-    color: #4a6cf7;
+    color: #00bcd4;
     padding: 0.3rem 0.6rem;
     border-radius: 4px;
     font-size: 0.7rem;
@@ -235,13 +235,13 @@
 }
 
 .project-category span {
-    color: #4a6cf7;
+    color: #00bcd4;
     font-weight: 500;
     text-transform: capitalize;
 }
 
 .download-report-btn {
-    background: #4a6cf7;
+    background: #00bcd4;
     color: white;
     border: none;
     padding: 0.4rem 0.8rem;
@@ -252,6 +252,11 @@
     display: flex;
     align-items: center;
     gap: 0.3rem;
+}
+
+.project-card:hover .project-tag,
+.project-card:hover .project-category span {
+    color: #3a5cd8
 }
 
 .download-report-btn:hover {
