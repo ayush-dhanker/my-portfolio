@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './Contact.css';
 
 const Contact = () => {
+
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -11,6 +12,7 @@ const Contact = () => {
 
     const [errors, setErrors] = useState({});
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -57,20 +59,12 @@ const Contact = () => {
         const formErrors = validateForm();
 
         if (Object.keys(formErrors).length === 0) {
-            // Form submission logic would go here
-            console.log('Form submitted:', formData);
-            setIsSubmitted(true);
+            setIsSubmitting(true);
 
-            // Reset form after 3 seconds
-            setTimeout(() => {
-                setFormData({
-                    name: '',
-                    email: '',
-                    subject: '',
-                    message: ''
-                });
-                setIsSubmitted(false);
-            }, 3000);
+            // Form will be submitted to FormSubmit.co
+            // We'll let the form submit naturally after validation
+            const form = e.target;
+            form.submit();
         } else {
             setErrors(formErrors);
         }
@@ -79,7 +73,7 @@ const Contact = () => {
     return (
         <section id="contact" className="contact-section">
             <div className="container">
-                <h2 className="section-title">Get In Touch</h2>
+                <h2 className="text-align-c">Get In Touch</h2>
                 <p className="section-subtitle">I'd love to hear from you. Let's work together!</p>
 
                 <div className="contact-content">
@@ -109,16 +103,13 @@ const Contact = () => {
 
 
                         <div className="social-links">
-                            <a href="#" className="social-link">
+                            <a href="https://github.com/ayush-dhanker" className="social-link">
                                 <i className="fab fa-github"></i>
                             </a>
-                            <a href="#" className="social-link">
+                            <a href="https://www.linkedin.com/in/ayush-dhanker/" className="social-link">
                                 <i className="fab fa-linkedin"></i>
                             </a>
-                            <a href="#" className="social-link">
-                                <i className="fab fa-twitter"></i>
-                            </a>
-                            <a href="#" className="social-link">
+                            <a href="https://medium.com/@ayush.dhanker" className="social-link">
                                 <i className="fab fa-medium"></i>
                             </a>
                         </div>
@@ -132,7 +123,18 @@ const Contact = () => {
                                 <p>Your message has been sent successfully. I'll get back to you soon.</p>
                             </div>
                         ) : (
-                            <form className="contact-form" onSubmit={handleSubmit}>
+                            <form
+                                className="contact-form"
+                                onSubmit={handleSubmit}
+                                action="https://formsubmit.co/fdc8a158d0fd911bb00941dd00f567ac"
+                                method="POST"
+                            >
+                                {/* FormSubmit configuration */}
+                                <input type="hidden" name="_subject" value="New contact form submission from Portfolio!" />
+                                <input type="hidden" name="_template" value="table" />
+                                <input type="hidden" name="_captcha" value="false" />
+                                <input type="hidden" name="_next" value="http://localhost:3000/" />
+
                                 <div className="form-group">
                                     <label htmlFor="name">Your Name</label>
                                     <input
@@ -142,6 +144,7 @@ const Contact = () => {
                                         value={formData.name}
                                         onChange={handleChange}
                                         className={errors.name ? 'error' : ''}
+                                        required
                                     />
                                     {errors.name && <span className="error-text">{errors.name}</span>}
                                 </div>
@@ -155,6 +158,7 @@ const Contact = () => {
                                         value={formData.email}
                                         onChange={handleChange}
                                         className={errors.email ? 'error' : ''}
+                                        required
                                     />
                                     {errors.email && <span className="error-text">{errors.email}</span>}
                                 </div>
@@ -168,6 +172,7 @@ const Contact = () => {
                                         value={formData.subject}
                                         onChange={handleChange}
                                         className={errors.subject ? 'error' : ''}
+                                        required
                                     />
                                     {errors.subject && <span className="error-text">{errors.subject}</span>}
                                 </div>
@@ -181,12 +186,23 @@ const Contact = () => {
                                         value={formData.message}
                                         onChange={handleChange}
                                         className={errors.message ? 'error' : ''}
+                                        required
                                     ></textarea>
                                     {errors.message && <span className="error-text">{errors.message}</span>}
                                 </div>
 
-                                <button type="submit" className="submit-btn">
-                                    Send Message
+                                <button
+                                    type="submit"
+                                    className="submit-btn"
+                                    disabled={isSubmitting}
+                                >
+                                    {isSubmitting ? (
+                                        <>
+                                            <i className="fas fa-spinner fa-spin"></i> Sending...
+                                        </>
+                                    ) : (
+                                        'Send Message'
+                                    )}
                                 </button>
                             </form>
                         )}

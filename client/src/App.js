@@ -46,7 +46,7 @@ function App() {
       {/* <SplashCursor /> */}
       <Navbar />
 
-      {/* Image/ display */}
+      {/* Image display */}
       <div id='home' style={{ padding: '80px 0 0' }}>
         <div className="orb-frame" >
           <div className="orb-layer">
@@ -71,8 +71,8 @@ function App() {
         <SocialLinks />
 
       </div>
-      {/* 
-      <div style={{ width: '100%', height: '200px', position: 'relative', display: 'flex', alignItems: 'center', zIndex: '-1' }}>
+
+      {/* <div style={{ width: '100%', height: '200px', position: 'relative', display: 'flex', alignItems: 'center', zIndex: '-1' }}>
         <Threads
           amplitude={1}
           distance={0}
@@ -112,9 +112,6 @@ function App() {
         </div>
       </div>
 
-
-
-      {/* Projects */}
       <div id='projects'>
         <Projects />
       </div>
@@ -122,17 +119,6 @@ function App() {
       <Contact />
 
       <Footer />
-      {/* <div className="grid h-screen place-content-center bg-black">
-        <Navigation />
-      </div> */}
-      {/* <div className="content">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/jobs" element={<Jobs />} />
-          <Route path="/apply/:jobId" element={<Application />} />
-        </Routes>
-      </div> */}
     </div>
   );
 }

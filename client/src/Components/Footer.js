@@ -13,13 +13,13 @@ const Footer = () => {
                             Open to opportunities as an intern or working student to apply my skills in real-world projects
                         </p>
                         <div className="social-links">
-                            <a href="#" className="social-link">
+                            <a href="https://github.com/ayush-dhanker" className="social-link">
                                 <i className="fab fa-github"></i>
                             </a>
-                            <a href="#" className="social-link">
+                            <a href="https://www.linkedin.com/in/ayush-dhanker/" className="social-link">
                                 <i className="fab fa-linkedin"></i>
                             </a>
-                            <a href="#" className="social-link">
+                            <a href="https://medium.com/@ayush.dhanker" className="social-link">
                                 <i className="fab fa-medium"></i>
                             </a>
                         </div>
@@ -32,17 +32,6 @@ const Footer = () => {
                             <li><a href="#about">About</a></li>
                             <li><a href="#projects">Projects</a></li>
                             <li><a href="#contact">Contact</a></li>
-                        </ul>
-                    </div>
-
-                    <div className="footer-section">
-                        <h4 className="footer-subtitle">Skills</h4>
-                        <ul className="footer-links">
-                            <li><a href="#">Machine Learning</a></li>
-                            <li><a href="#">Web Development</a></li>
-                            <li><a href="#">Data Analysis</a></li>
-                            <li><a href="#">NLP</a></li>
-                            <li><a href="#">API Development</a></li>
                         </ul>
                     </div>
 
@@ -60,7 +49,7 @@ const Footer = () => {
                                 GERMANY
                             </p>
                         </div>
-                        <button className="f-contact-btn">Get In Touch</button>
+                        <button className="f-contact-btn" onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}>Get In Touch</button>
                     </div>
                 </div>
 

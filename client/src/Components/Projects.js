@@ -87,7 +87,7 @@ const Projects = () => {
     return (
         <section id="projects" className="projects-section">
             <div className="container">
-                <h2 style={{ textAlign: 'center' }}>My Projects</h2>
+                <h2 className='text-align-c'>My Projects</h2>
                 <p className="section-subtitle">A selection of my recent work</p>
 
                 {/* Filter buttons */}
