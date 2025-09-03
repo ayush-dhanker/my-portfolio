@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
 import './Projects.css';
+import chatImg from "../assets/l-chatbot.webp"
+import report from "../assets/report.pdf"
+import resumeScreen from '../assets/resumeScreen.png'
+import mnist from '../assets/mnist.jpg'
+import portfolioImg from "../assets/portfolio.png"
+import tennis from "../assets/tennis.jpg"
 
 const Projects = () => {
     const [activeFilter, setActiveFilter] = useState('all');
@@ -7,64 +13,50 @@ const Projects = () => {
     const projects = [
         {
             id: 1,
-            title: "E-Commerce Platform",
-            description: "A full-stack e-commerce solution with React, Node.js, and MongoDB.",
-            image: "https://via.placeholder.com/300x200/4a6cf7/ffffff?text=E-Commerce",
-            tags: ["react", "node", "mongodb"],
+            title: "Tennis Analysis (CNN)",
+            description: "coming soon...",
+            image: tennis,
+            tags: ["deep learning", "CNN", "YOLO", "Pytorch"],
             category: "personal",
-            link: "#",
-            report: ""
+            link: "https://github.com/ayush-dhanker/tennis-analysis-cnn",
         },
         {
             id: 2,
-            title: "Customer Behavior Analysis",
-            description: "A predictive model for customer behavior using Python and Scikit-learn.",
-            image: "https://via.placeholder.com/300x200/8a54ff/ffffff?text=ML+Model",
-            tags: ["python", "ml", "scikit-learn"],
-            category: "course",
-            link: "#",
-            report: "/reports/customer_analysis.pdf"
+            title: "Langchain chatbot",
+            description: "An interactive chatbot built with LangChain, Streamlit, and Ollama/OpenAI.",
+            image: chatImg,
+            tags: ["Python", "LangChain", "Streamlit", "Ollama"],
+            category: "personel",
+            link: "https://github.com/ayush-dhanker/langchain-chatbot",
         },
         {
             id: 3,
             title: "Portfolio Website",
-            description: "A responsive portfolio website built with React and CSS animations.",
-            image: "https://via.placeholder.com/300x200/00b4db/ffffff?text=Portfolio",
-            tags: ["react", "css", "web"],
+            description: "A responsive portfolio website built with ReactJS and CSS animations.",
+            image: portfolioImg,
+            tags: ["react", "css", "javascript"],
             category: "personal",
-            link: "#",
-            report: ""
+            link: "https://github.com/ayush-dhanker/my-portfolio",
         },
         {
             id: 4,
-            title: "NLP Sentiment Analysis",
-            description: "Natural Language Processing application for sentiment analysis.",
-            image: "https://via.placeholder.com/300x200/ff6b6b/ffffff?text=NLP",
-            tags: ["python", "nlp", "machine learning"],
+            title: "Resume_screening_project",
+            description: "Evaluating Transparency in User Profiling to improve clarity for Resume Screening Systems",
+            image: resumeScreen,
+            tags: ["python", "machine learning", "BERT", "FAST-Api", "ReactJs"],
             category: "course",
-            link: "#",
+            link: "https://github.com/ayush-dhanker/Resume_screening_project",
             report: "/reports/nlp_sentiment.pdf"
         },
         {
             id: 5,
-            title: "Data Visualization Dashboard",
-            description: "Interactive dashboard for data visualization using D3.js and React.",
-            image: "https://via.placeholder.com/300x200/2c5364/ffffff?text=Dashboard",
-            tags: ["react", "d3", "data visualization"],
+            title: "Image-Classification-on-MNIST",
+            description: "A beginner-friendly PyTorch project for handwritten digit classification using the MNIST dataset. Includes a full training pipeline, evaluation, and loss visualization with matplotlib",
+            image: mnist,
+            tags: ["pytorch", "python", "data visualization", "deep-learning"],
             category: "personal",
-            link: "#",
-            report: ""
+            link: "https://github.com/ayush-dhanker/Image-Classification-on-MNIST",
         },
-        {
-            id: 6,
-            title: "RESTful API Development",
-            description: "API development with FastAPI and PostgreSQL.",
-            image: "https://via.placeholder.com/300x200/203a43/ffffff?text=API",
-            tags: ["python", "fastapi", "postgresql"],
-            category: "course",
-            link: "#",
-            report: "/reports/api_development.pdf"
-        }
     ];
 
     const filters = [
@@ -78,10 +70,46 @@ const Projects = () => {
         : projects.filter(project => project.category === activeFilter);
 
     const handleDownloadReport = (reportUrl, projectTitle) => {
-        // Simulate download functionality
-        console.log(`Downloading report for ${projectTitle} from ${reportUrl}`);
-        // In a real application, this would trigger a file download
-        alert(`Downloading report for ${projectTitle}`);
+        try {
+            // Validate inputs
+            if (!reportUrl) {
+                throw new Error('No report URL provided');
+            }
+
+            if (!projectTitle) {
+                throw new Error('No project title provided');
+            }
+
+            // Create a temporary anchor element
+            const link = document.createElement('a');
+            link.href = reportUrl;
+
+            // Set the download attribute with a proper filename
+            const fileName = `${projectTitle
+                .replace(/\s+/g, '_')
+                .replace(/[^\w\-]/g, '')
+                .toLowerCase()}_report.pdf`;
+
+            link.download = fileName;
+            link.target = '_blank'; // Open in new tab for PDFs
+
+            // Set styles to hide the element
+            link.style.display = 'none';
+
+            // Append to body, click, and remove
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+            console.log(`Downloading report for ${projectTitle}`);
+
+            // Optional: Track download analytics
+            // trackDownload(projectTitle, reportUrl);
+
+        } catch (error) {
+            console.error('Download failed:', error);
+            alert(`Download failed: ${error.message}`);
+        }
     };
 
     return (
