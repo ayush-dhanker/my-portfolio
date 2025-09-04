@@ -100,3 +100,29 @@ h1 {
     width: 45%;
     /* min-width: 450px; */
 }
+
+.about-t {
+    padding: 2.2rem;
+    padding-Right: 3rem;
+}
+
+@media (max-width: 768px) {
+
+    h1 {
+        font-size: 30px;
+        margin: 0;
+    }
+
+    .profile {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile>div {
+        width: 95%
+    }
+
+    .about-t {
+        padding: 1rem;
+    }
+}

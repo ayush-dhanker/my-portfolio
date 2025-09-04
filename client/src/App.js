@@ -87,7 +87,7 @@ function App() {
           <div>
 
             <h2>ABOUT</h2>
-            <p style={{ padding: '2.2rem', paddingRight: '3rem' }}>
+            <p className="about-t">
               I’m a Master’s student in Data Science Engineering with a strong foundation in Computer Science and hands-on experience in machine learning and full-stack development.
               I work fluently with Python (Scikit-learn, PyTorch), JavaScript/React, SQL, FastAPI, and Git, building everything from RESTful APIs to interactive data visualizations. Through internships and projects,
               I’ve applied these skills to develop practical, end-to-end solutions that bridge data and software.

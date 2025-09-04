@@ -26,7 +26,7 @@ const Projects = () => {
             description: "An interactive chatbot built with LangChain, Streamlit, and Ollama/OpenAI.",
             image: chatImg,
             tags: ["Python", "LangChain", "Streamlit", "Ollama"],
-            category: "personel",
+            category: "personal",
             link: "https://github.com/ayush-dhanker/langchain-chatbot",
         },
         {
